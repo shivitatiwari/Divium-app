@@ -1,0 +1,13 @@
+<resources>
+    <style name="Theme.Divium" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="Theme.Divium.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/divium_splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/divium_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.Divium</item>
+    </style>
+</resources>
