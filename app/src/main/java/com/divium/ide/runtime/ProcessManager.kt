@@ -36,7 +36,7 @@ class ManagedProcess internal constructor(
         workingDirectory = workingDirectory.absolutePath,
         state = state,
         exitCode = exitCode,
-        pid = runCatching { process?.pid() }.getOrNull(),
+        pid = null,
         ports = detectedPorts.toSet(),
         output = outputLines.takeLast(2_000),
     )
