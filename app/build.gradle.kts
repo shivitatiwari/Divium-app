@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.termux.terminal.view)
+    implementation(libs.sora.editor)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
