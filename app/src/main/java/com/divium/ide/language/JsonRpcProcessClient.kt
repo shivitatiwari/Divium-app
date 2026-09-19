@@ -41,7 +41,7 @@ class JsonRpcProcessClient(
                         }
                     }
                     if (contentLength <= 0) continue
-                    val body = input.readNBytes(contentLength).toString(Charsets.UTF_8)
+                    val body = readExactly(input, contentLength).toString(Charsets.UTF_8)
                     val json = JSONObject(body)
                     if (json.has("id")) pending.remove(json.getLong("id"))?.invoke(json) else onNotification(json)
                 }
@@ -85,6 +85,17 @@ class JsonRpcProcessClient(
         output.write(header)
         output.write(bytes)
         output.flush()
+    }
+
+    private fun readExactly(input: BufferedInputStream, size: Int): ByteArray {
+        val bytes = ByteArray(size)
+        var offset = 0
+        while (offset < size) {
+            val read = input.read(bytes, offset, size - offset)
+            if (read < 0) error("Unexpected end of JSON-RPC stream")
+            offset += read
+        }
+        return bytes
     }
 
     private fun readAsciiLine(input: BufferedInputStream): String? {
