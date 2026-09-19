@@ -11,11 +11,11 @@ Milestone 1 establishes the Android foundation, branding, first-run setup, langu
 - Application ID: `com.divium.ide`
 - minSdk: 28
 - targetSdk: 36 (Android 16)
-- compileSdk: 37
+- compileSdk: 36
 - AGP: 9.4.0
 - Gradle: 9.6.x in CI
 - Java: 17
-- Jetpack Compose BOM: 2026.09.00
+- Jetpack Compose BOM: 2026.06.00
 
 ## Build
 
