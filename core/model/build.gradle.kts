@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.divium.core.model"
-    compileSdk = 37
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 28
