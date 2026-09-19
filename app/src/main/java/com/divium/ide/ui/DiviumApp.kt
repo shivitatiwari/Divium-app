@@ -29,13 +29,14 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.rememberSaveable
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.divium.ide.domain.LanguageCatalog
 import com.divium.ide.domain.LanguagePack
 
@@ -48,7 +49,7 @@ private val Moss = Color(0xFF52664B)
 @Composable
 fun DiviumApp() {
     var step by rememberSaveable { mutableStateOf(0) }
-    var selectedLanguageIds by rememberSaveable { mutableStateOf(setOf("javascript", "python")) }
+    var selectedLanguageIds by rememberSaveable { mutableStateOf<Set<String>>(setOf("javascript", "python")) }
     var workspaceMode by rememberSaveable { mutableStateOf("managed") }
 
     MaterialTheme(
@@ -95,7 +96,7 @@ private fun Onboarding(
     Scaffold(topBar = {
         TopAppBar(title = {
             Column {
-                Text("DIVIUM", fontWeight = FontWeight.Black, letterSpacing = androidx.compose.ui.unit.sp(2))
+                Text("DIVIUM", fontWeight = FontWeight.Black, letterSpacing = 2.sp)
                 Text("A serious IDE, shaped for Android", style = MaterialTheme.typography.labelSmall)
             }
         })
@@ -177,7 +178,7 @@ private fun WorkspaceOption(title: String, detail: String, selected: Boolean, on
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun FoundationHome(selectedLanguageIds: Set<String>, workspaceMode: String, onRestartSetup: () -> Unit) {
-    Scaffold(topBar = { TopAppBar(title = { Text("DIVIUM", fontWeight = FontWeight.Black, letterSpacing = androidx.compose.ui.unit.sp(2)) }) }) { padding ->
+    Scaffold(topBar = { TopAppBar(title = { Text("DIVIUM", fontWeight = FontWeight.Black, letterSpacing = 2.sp) }) }) { padding ->
         Column(modifier = Modifier.fillMaxSize().padding(padding).padding(20.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
             Text("Foundation ready.", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black)
             Text("The Android shell is configured. The next shipped layer is the embedded runtime, real terminal and workspace filesystem.")
