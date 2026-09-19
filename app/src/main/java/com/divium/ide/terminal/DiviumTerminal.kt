@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.weight
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -55,7 +54,6 @@ private class SessionClient(private val context: Context) : TerminalSessionClien
     override fun onBell(session: TerminalSession) = Unit
     override fun onColorsChanged(session: TerminalSession) = Unit
     override fun onTerminalCursorStateChange(state: Boolean) = Unit
-    override fun setTerminalShellPid(session: TerminalSession, pid: Int) = Unit
     override fun getTerminalCursorStyle(): Int? = null
 
     override fun logError(tag: String, message: String) { Log.e(tag, message) }

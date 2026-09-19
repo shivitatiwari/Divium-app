@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.weight
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -19,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import io.github.rosemoe.sora.event.ContentChangeEvent
-import io.github.rosemoe.sora.event.subscribeAlways
 import io.github.rosemoe.sora.widget.CodeEditor
 import java.io.File
 
@@ -63,7 +61,7 @@ fun EditorPane(
                     setTextSize(14f)
                     isWordwrap = false
                     props.stickyScroll = true
-                    subscribeAlways<ContentChangeEvent> { dirty = true }
+                    subscribeAlways(ContentChangeEvent::class.java) { dirty = true }
                     editor.value = this
                 }
             },
