@@ -59,6 +59,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.termux.terminal.view)
     implementation(libs.sora.editor)
+    implementation(libs.jgit)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
