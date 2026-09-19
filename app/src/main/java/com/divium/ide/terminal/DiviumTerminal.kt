@@ -58,13 +58,13 @@ private class SessionClient(private val context: Context) : TerminalSessionClien
     override fun setTerminalShellPid(session: TerminalSession, pid: Int) = Unit
     override fun getTerminalCursorStyle(): Int? = null
 
-    override fun logError(tag: String, message: String) = Log.e(tag, message)
-    override fun logWarn(tag: String, message: String) = Log.w(tag, message)
-    override fun logInfo(tag: String, message: String) = Log.i(tag, message)
-    override fun logDebug(tag: String, message: String) = Log.d(tag, message)
-    override fun logVerbose(tag: String, message: String) = Log.v(tag, message)
-    override fun logStackTraceWithMessage(tag: String, message: String, e: Exception) = Log.e(tag, message, e)
-    override fun logStackTrace(tag: String, e: Exception) = Log.e(tag, e.message, e)
+    override fun logError(tag: String, message: String) { Log.e(tag, message) }
+    override fun logWarn(tag: String, message: String) { Log.w(tag, message) }
+    override fun logInfo(tag: String, message: String) { Log.i(tag, message) }
+    override fun logDebug(tag: String, message: String) { Log.d(tag, message) }
+    override fun logVerbose(tag: String, message: String) { Log.v(tag, message) }
+    override fun logStackTraceWithMessage(tag: String, message: String, e: Exception) { Log.e(tag, message, e) }
+    override fun logStackTrace(tag: String, e: Exception) { Log.e(tag, e.message, e) }
 }
 
 private class ViewClient(private val view: TerminalView) : TerminalViewClient {
@@ -100,13 +100,13 @@ private class ViewClient(private val view: TerminalView) : TerminalViewClient {
     override fun onCodePoint(codePoint: Int, ctrlDown: Boolean, session: TerminalSession) = false
     override fun onEmulatorSet() = Unit
 
-    override fun logError(tag: String, message: String) = Log.e(tag, message)
-    override fun logWarn(tag: String, message: String) = Log.w(tag, message)
-    override fun logInfo(tag: String, message: String) = Log.i(tag, message)
-    override fun logDebug(tag: String, message: String) = Log.d(tag, message)
-    override fun logVerbose(tag: String, message: String) = Log.v(tag, message)
-    override fun logStackTraceWithMessage(tag: String, message: String, e: Exception) = Log.e(tag, message, e)
-    override fun logStackTrace(tag: String, e: Exception) = Log.e(tag, e.message, e)
+    override fun logError(tag: String, message: String) { Log.e(tag, message) }
+    override fun logWarn(tag: String, message: String) { Log.w(tag, message) }
+    override fun logInfo(tag: String, message: String) { Log.i(tag, message) }
+    override fun logDebug(tag: String, message: String) { Log.d(tag, message) }
+    override fun logVerbose(tag: String, message: String) { Log.v(tag, message) }
+    override fun logStackTraceWithMessage(tag: String, message: String, e: Exception) { Log.e(tag, message, e) }
+    override fun logStackTrace(tag: String, e: Exception) { Log.e(tag, e.message, e) }
 }
 
 private class TerminalHolder(context: Context, cwd: File) {
